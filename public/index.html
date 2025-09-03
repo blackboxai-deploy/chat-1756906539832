@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Hello World</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <style>
+        body {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            font-family: 'Inter', sans-serif;
+        }
+        .hello-container {
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            color: white;
+            text-align: center;
+        }
+        h1 {
+            font-size: 3rem;
+            margin-bottom: 1rem;
+            animation: fadeIn 2s ease-in-out;
+        }
+        p {
+            font-size: 1.5rem;
+            margin-bottom: 2rem;
+        }
+        button {
+            padding: 0.75rem 1.5rem;
+            background-color: #f093fb;
+            border: none;
+            border-radius: 0.5rem;
+            color: white;
+            font-size: 1rem;
+            cursor: pointer;
+            transition: background-color 0.3s;
+        }
+        button:hover {
+            background-color: #f5576c;
+        }
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(-20px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+    </style>
+</head>
+<body>
+    <div class="hello-container">
+        <h1 id="greeting">Hello World!</h1>
+        <p id="message">Welcome to your first responsive web page.</p>
+        <button id="clickMe">Click Me!</button>
+    </div>
+
+    <script>
+        const greeting = document.getElementById('greeting');
+        const message = document.getElementById('message');
+        const button = document.getElementById('clickMe');
+
+        let isClicked = false;
+
+        // Get current hour for dynamic greeting
+        const hour = new Date().getHours();
+        if (hour < 12) {
+            greeting.textContent = "Good Morning, World!";
+        } else if (hour < 18) {
+            greeting.textContent = "Good Afternoon, World!";
+        } else {
+            greeting.textContent = "Good Evening, World!";
+        }
+
+        // Button interaction
+        button.addEventListener('click', () => {
+            if (!isClicked) {
+                greeting.textContent = "Hello, Universe!";
+                message.textContent = "You've clicked the button! The world just got bigger.";
+                button.textContent = "Click Again?";
+                isClicked = true;
+            } else {
+                greeting.textContent = "Back to Basics";
+                message.textContent = "Welcome to your first responsive web page.";
+                button.textContent = "Click Me!";
+                isClicked = false;
+            }
+        });
+    </script>
+</body>
+</html>
+</content>
+</create_file>
